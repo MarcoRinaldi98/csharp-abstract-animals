@@ -24,20 +24,25 @@ foreach (Animale animale in animali)
     animale.CosaMangi();
     animale.Verso();
     animale.Dormi();
+    if (animale is INuotante nuotante)
+    {
+        FaiNuotare(nuotante);
+    } else if (animale is IVolante volante) 
+    { 
+        FaiVolare(volante);
+    } else
+    {
+        Console.WriteLine("L'animale non sta facendo nulla!");
+    }
     Console.WriteLine();
 }
 
-// Faccio volare o nuotare gli animali in base al loro tipo
-cane.Nuota();
-passerotto.Vola();
-aquila.Vola();
-delfino.Nuota();
-
+// Metodo per far volare un animale
 static void FaiVolare(IVolante animale)
 {
     animale.Vola();
 }
-
+// Metodo per far nuotare un animale
 static void FaiNuotare(INuotante animale)
 {
     animale.Nuota();
